@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const dummyData = [
-  'take my cat for a walk',
-  'make dinner',
-  'create a database',
-  'go to tech meetup',
-  'try on VR headset',
-  'review data structures and algorithms',
-  'learn datascience'
+  {taskText: 'take my cat for a walk', completed: false},
+  {taskText: 'make dinner', completed: true},
+  {taskText: 'create a database', completed: false},
+  {taskText: 'go to tech meetup', completed: false},
+  {taskText: 'try on VR headset', completed: true},
+  {taskText: 'learn data structures and algorithms', completed: true},
+  {taskText: 'learn datascience', completed: false},
+  {taskText: 'learn cryptography', completed: false},
 ]
 
 class InputLine extends React.Component{
@@ -31,7 +32,7 @@ class Todo extends React.Component{
   }
   render() {
     return (
-      <li> <button>x</button> {this.props.task} </li>
+      <li> <button>x</button> {this.props.task.completed? this.props.task.taskText: <strike> {this.props.task.taskText} </strike>} </li>
     )
   }
 }
