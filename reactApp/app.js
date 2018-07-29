@@ -11,16 +11,19 @@ const dummyData = [
   'learn datascience'
 ]
 
-// class InputLine extends React.Component{
-//   constructor(props) {
-//     super(props);
-//   }
-//   render() {
-//     return (
-//
-//     )
-//   }
-// }
+class InputLine extends React.Component{
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className="InputLine">
+        <input type="text" name="" value="" placeholder = "task"/>
+        <input type="submit" name="" value="Add todo"/>
+      </div>
+    )
+  }
+}
 
 class Todo extends React.Component{
   constructor(props) {
@@ -50,15 +53,18 @@ class TodoList extends React.Component {
   }
 }
 
-// class TodoApp extends React.Component{
-//   constructor(props) {
-//     super(props);
-//   }
-//   render() {
-//     return (
-//
-//     )
-//   }
-// }
+class TodoApp extends React.Component{
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <InputLine/>
+        <TodoList/>
+      </div>
+    )
+  }
+}
 
-ReactDOM.render(<TodoList/>, document.getElementById('root'));
+ReactDOM.render(<TodoApp/>, document.getElementById('root'));
