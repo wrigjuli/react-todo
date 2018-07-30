@@ -36,11 +36,22 @@ class TodoApp extends React.Component{
     })
   }
 
+  removeTodo(datum) {
+      let tempArray = this.state.todos.slice();
+      let index = tempArray.indexOf(datum);
+      if (index !== -1){
+        tempArray.splice(index, 1);
+        this.setState({
+          todos: tempArray,
+        })
+      }
+  }
+
   render() {
     return (
       <div>
         <InputLine submit= {(typedText) => this.addTodo(typedText)}/>
-        <TodoList todos = {this.state.todos}/>
+        <TodoList todoXClick = {(datum)=>this.removeTodo(datum)} todos = {this.state.todos}/>
       </div>
     )
   }
