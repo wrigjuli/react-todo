@@ -47,11 +47,23 @@ class TodoApp extends React.Component{
       }
   }
 
+  toggleApp(datum){
+    let datumCopy = Object.assign({}, datum);
+    datumCopy.completed = !datumCopy.completed;
+    let tempArray = this.state.todos.slice();
+    tempArray.splice(tempArray.indexOf(datum), 1, datumCopy);
+    this.setState({
+      todos: tempArray
+    })
+  }
+
   render() {
     return (
       <div>
         <InputLine submit= {(typedText) => this.addTodo(typedText)}/>
-        <TodoList todoXClick = {(datum)=>this.removeTodo(datum)} todos = {this.state.todos}/>
+        <TodoList
+          toggleList = {(datum) => this.toggleApp(datum)}
+          todoXClick = {(datum)=>this.removeTodo(datum)} todos = {this.state.todos}/>
       </div>
     )
   }
