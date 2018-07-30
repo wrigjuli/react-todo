@@ -29,10 +29,8 @@ class TodoApp extends React.Component{
     })
   }
 
-  addTodo(event) {
-    console.log("event target value", event.target.value);
-    event.preventDefault();
-    dummyData.push({taskText: event.target.value, completed: false});
+  addTodo(typedText) {
+    dummyData.push({taskText: typedText, completed: false});
     this.setState({
       todos: dummyData,
     })
@@ -41,7 +39,7 @@ class TodoApp extends React.Component{
   render() {
     return (
       <div>
-        <InputLine submit= {(event) => this.addTodo(event)}/>
+        <InputLine submit= {(typedText) => this.addTodo(typedText)}/>
         <TodoList todos = {this.state.todos}/>
       </div>
     )
